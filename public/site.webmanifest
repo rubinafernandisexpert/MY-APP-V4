@@ -1,0 +1,13 @@
+{
+  "name": "Brio — study smarter",
+  "short_name": "Brio",
+  "description": "Practical study articles, free research guides and short ebooks you can read or listen to.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBF7F0",
+  "theme_color": "#2B2140",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

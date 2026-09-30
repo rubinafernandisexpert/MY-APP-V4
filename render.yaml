@@ -1,0 +1,30 @@
+# Render.com blueprint — connect the repo and Render builds this image.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: brio
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DB_FILE
+        value: /app/data/db.json
+      - key: DEMO_EMAIL
+        value: demo@brio.app
+      - key: DEMO_PASSWORD
+        value: BrioDemo!2026
+      - key: SHOW_DEMO_CREDENTIALS
+        value: "true"
+      # Keeps the seeded account + accounts on the mounted disk
+      - key: SEED_ON_BOOT
+        value: "true"
+    disk:
+      name: brio-data
+      mountPath: /app/data
+      sizeGB: 1

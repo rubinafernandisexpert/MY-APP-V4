@@ -1,0 +1,43 @@
+/* =========================================================================
+   Brio — layout fix (loaded last)
+   The hero right column is a stacked block, never a fixed-width grid track,
+   so the analytics panel and library card always fit the viewport.
+   ========================================================================= */
+.hero-grid{grid-template-columns:1fr!important}
+.hero-art{
+  display:block!important;
+  position:relative;min-height:0!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:0!important;padding:0!important;
+}
+.hero-art>*{
+  display:block!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:0 auto 18px!important;box-sizing:border-box;
+}
+.analytics,.hero-art .libcard{width:100%!important;max-width:100%!important}
+@media (min-width:1024px){
+  .hero-grid{grid-template-columns:1.02fr .98fr!important;align-items:center}
+  .hero-art{max-width:520px!important;margin-left:auto!important;margin-right:auto!important}
+}
+@media (max-width:1023px){
+  .hero-art>*:last-child{margin-bottom:0!important}
+}
+
+/* Brio — mobile width containment (generated from measured offenders) */
+div.hero-art{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important}
+div#analytics.analytics.is-ready{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important}
+.wrap{width:100%!important;max-width:min(1200px,94vw)!important;min-width:0!important;margin-left:auto!important;margin-right:auto!important}
+html,body{overflow-x:hidden!important;max-width:100%!important}
+.hero,.hero-grid,.hero-copy,.hero-art{width:100%!important;max-width:100%!important;min-width:0!important}
+
+/* ---- final containment: full width on phones, capped on desktop ---- */
+.hero-art{display:flex!important;flex-direction:column;align-items:stretch;gap:18px}
+.hero-art>*{width:100%!important;max-width:560px!important;min-width:0!important;
+  margin-left:auto!important;margin-right:auto!important;box-sizing:border-box}
+.analytics{padding:18px 18px 16px!important}
+.analytics::before{inset:0!important}
+@media (min-width:1024px){
+  .hero-grid{grid-template-columns:1.02fr .98fr!important;align-items:center}
+  .hero-art{max-width:560px!important;margin-left:auto!important;margin-right:auto!important}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "brio-human-written-ebooks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brio — a human-written ebook storefront plus an authenticated personal library (Node + Express).",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "main": "server/index.js",
+  "scripts": {
+    "build": "node scripts/build-catalog.js",
+    "seed": "node scripts/seed.js",
+    "prestart": "npm run build && npm run seed",
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "bash tests/smoke.sh",
+    "reset": "node scripts/seed.js --force",
+    "docker:build": "docker build -t brio:1.0.0 .",
+    "docker:up": "docker compose up --build"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

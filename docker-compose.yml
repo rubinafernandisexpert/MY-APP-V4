@@ -1,0 +1,23 @@
+# docker compose up --build   →  http://localhost:8080
+# Put a real SESSION_SECRET in .env before exposing this anywhere.
+services:
+  brio:
+    build: .
+    image: brio:1.0.0
+    container_name: brio
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      PORT: "8080"
+      # Optional. If unset, the server generates one and stores it in
+      # ./data/session-secret, so sessions survive restarts with zero setup.
+      SESSION_SECRET: ${SESSION_SECRET:-}
+      DB_FILE: /app/data/db.json
+      DEMO_EMAIL: ${DEMO_EMAIL:-demo@brio.app}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-BrioDemo!2026}
+      SHOW_DEMO_CREDENTIALS: "true"
+      SEED_ON_BOOT: "true"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

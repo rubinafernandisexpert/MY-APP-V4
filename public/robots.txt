@@ -1,0 +1,14 @@
+# Brio — robots.txt
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /read/
+Disallow: /listen/
+Disallow: /cart
+Disallow: /checkout
+
+# No AI-training crawlers are blocked by default; add them here if you wish:
+# User-agent: GPTBot
+# Disallow: /
+
+Sitemap: https://brio.example/sitemap.xml

@@ -1,0 +1,20 @@
+/* =========================================================================
+   Brio — final hard caps (loaded LAST, after fix.css)
+   The hero right column is a flexible stack; the analytics panel and the
+   library card can never grow wider than their column or the viewport.
+   ========================================================================= */
+.hero-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)!important;align-items:center}
+@media (max-width:1023px){ .hero-grid{grid-template-columns:minmax(0,1fr)!important} }
+.hero,.hero-grid,.hero-copy{min-width:0}
+.hero-art{width:100%!important;max-width:560px!important;min-width:0!important;
+  display:flex!important;flex-direction:column;gap:18px;align-items:stretch;
+  margin-left:auto!important;margin-right:auto!important}
+.hero-art>*{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+#analytics,.analytics{width:100%!important;max-width:100%!important;min-width:0!important;overflow:hidden}
+.analytics *{min-width:0!important}
+.an-head,.an-big,.an-sub,.an-bars,.an-x,.an-spark,.an-rows,.an-note{
+  width:100%!important;max-width:100%!important;min-width:0!important;overflow:hidden}
+.an-big{flex-wrap:wrap}
+.an-bars span{min-width:0}
+.wrap{width:100%!important;max-width:min(1200px,94vw)!important;min-width:0!important;margin-inline:auto!important}
+section.section{position:relative;isolation:isolate}
